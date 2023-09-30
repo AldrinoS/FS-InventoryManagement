@@ -1,6 +1,6 @@
-package com.familyshop.inventorymanagement.ItemService.model;
+package com.familyshop.inventorymanagement.ProductService.model;
 
-public class ItemDetail {
+public class ProductDetail {
 
     private int id;
     private float costPrice;
@@ -8,10 +8,10 @@ public class ItemDetail {
     private float count;
     private String unit;
 
-    public ItemDetail() {
+    public ProductDetail() {
     }
 
-    public ItemDetail(float costPrice, float sellingPrice, float count, String unit) {
+    public ProductDetail(float costPrice, float sellingPrice, float count, String unit) {
         this.costPrice = costPrice;
         this.sellingPrice = sellingPrice;
         this.count = count;

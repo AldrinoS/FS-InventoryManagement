@@ -1,4 +1,4 @@
-package com.familyshop.inventorymanagement.ItemService.repository;
+package com.familyshop.inventorymanagement.ProductService.repository;
 
-public interface ItemRepository {
+public interface ProductRepository {
 }

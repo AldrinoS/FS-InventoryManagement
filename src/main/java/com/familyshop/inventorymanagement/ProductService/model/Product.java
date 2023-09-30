@@ -1,18 +1,18 @@
-package com.familyshop.inventorymanagement.ItemService.model;
+package com.familyshop.inventorymanagement.ProductService.model;
 
 import java.util.List;
 
-public class Item {
+public class Product {
 
     private int id;
     private String name;
     private String desc;
-    private List<ItemDetail> itemDetailList;
+    private List<ProductDetail> productDetailList;
 
-    public Item() {
+    public Product() {
     }
 
-    public Item(String name, String desc) {
+    public Product(String name, String desc) {
         this.name = name;
         this.desc = desc;
     }
@@ -41,11 +41,11 @@ public class Item {
         this.desc = desc;
     }
 
-    public List<ItemDetail> getItemDetailList() {
-        return itemDetailList;
+    public List<ProductDetail> getItemDetailList() {
+        return productDetailList;
     }
 
-    public void setItemDetailList(List<ItemDetail> itemDetailList) {
-        this.itemDetailList = itemDetailList;
+    public void setItemDetailList(List<ProductDetail> productDetailList) {
+        this.productDetailList = productDetailList;
     }
 }

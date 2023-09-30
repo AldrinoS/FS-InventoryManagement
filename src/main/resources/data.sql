@@ -1,3 +1,3 @@
-INSERT INTO roles("ID", "NAME") VALUES (1, 'ADMIN')
-INSERT INTO roles("ID", "NAME") VALUES (2, 'CUSTOMER')
-INSERT INTO roles("ID", "NAME") VALUES (3, 'SUPPLIER')
+insert into ROLES (id, name) values (1, 'ADMIN');
+insert into ROLES (id, name) values (2, 'CUSTOMER');
+insert into ROLES (id, name) values (3, 'SUPPLIER');
