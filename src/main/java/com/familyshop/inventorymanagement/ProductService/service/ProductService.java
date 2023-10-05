@@ -8,10 +8,10 @@ import java.util.List;
 public interface ProductService {
 
     public List<Product> getAllProducts();
-    public Product getProductById(int id);
-    public void createProduct(ProductDto product);
-    public void updateProductById(ProductDto product);
-    public void updateProductByIdAndDate(ProductDto product);
+    public Product getProductById(int id) throws Exception;
+    public void createProduct(ProductDto product) throws Exception;
+    public void updateProductById(int productId, ProductDto product);
+    public void updateProductByIdAndDate(int productId, String date, ProductDto product) throws Exception;
 
 
 }

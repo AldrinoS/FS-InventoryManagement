@@ -1,12 +1,17 @@
 package com.familyshop.inventorymanagement.ProductService.model;
 
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table
 public class Product {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String desc;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ProductDetail> productDetailList;
 
     public Product() {
@@ -15,6 +20,7 @@ public class Product {
     public Product(String name, String desc) {
         this.name = name;
         this.desc = desc;
+        this.productDetailList = new ArrayList<>();
     }
 
     public int getId() {

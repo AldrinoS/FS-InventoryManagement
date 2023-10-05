@@ -2,7 +2,6 @@ package com.familyshop.inventorymanagement;
 
 import com.familyshop.inventorymanagement.UserService.dto.UserDto;
 import com.familyshop.inventorymanagement.UserService.model.UserEntity;
-import com.familyshop.inventorymanagement.UserService.repository.UserRepository;
 import com.familyshop.inventorymanagement.testRepository.UserTestRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -146,5 +145,45 @@ public class UserServiceTest {
         assertEquals("Admintwo@gmail.com", user.get().getContactDetails().getEmail());
 
         assertEquals(3, userRepository.findAll().size());
+    }
+
+    @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+    public static class ProductServiceTest {
+
+        @LocalServerPort
+        private int port;
+
+        private String baseUrl = "http://localhost";
+
+        private static RestTemplate restTemplate;
+
+        @Autowired
+        private UserTestRepository userRepository;
+
+        @BeforeAll
+        public static void init() {
+            restTemplate = new RestTemplate();
+        }
+
+        @BeforeEach
+        public void setUp() {
+            baseUrl = baseUrl.concat(":").concat(port + "").concat("/api/v1/products");
+        }
+
+
+        @Test
+        public void testAddCustomerUser() {
+            UserDto customer = new UserDto();
+            customer.setName("Customer 1");
+            customer.setPhone(123456789);
+            customer.setEmail("customerone@gmail.com");
+            customer.setAddress("Queens Street");
+            restTemplate.postForObject(baseUrl + "?role=CUSTOMER", customer, UserDto.class);
+            Optional<UserEntity> user = userRepository.findById(1);
+
+            assertEquals("Customer 1", user.get().getName());
+            assertEquals(1, userRepository.findAll().size());
+        }
+
     }
 }
